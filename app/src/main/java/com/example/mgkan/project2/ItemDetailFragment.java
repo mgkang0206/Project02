@@ -24,10 +24,6 @@ public class ItemDetailFragment extends Fragment {
    */
   public static final String ARG_ITEM_ID = "item_id";
 
-  /**
-   * The dummy content this fragment is presenting.
-   */
-  private DummyContent.DummyItem mItem;
 
   /**
    * Mandatory empty constructor for the fragment manager to instantiate the
@@ -45,12 +41,12 @@ public class ItemDetailFragment extends Fragment {
       // arguments. In a real-world scenario, use a Loader
       // to load content from a content provider.
 
-      mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+      mItems = getArguments().getString(ARG_ITEM_ID);
 
       Activity activity = this.getActivity();
       CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
       if (appBarLayout != null) {
-        appBarLayout.setTitle(mItem.content);
+        appBarLayout.setTitle(mItems.content);
       }
     }
   }
