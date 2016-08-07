@@ -25,6 +25,8 @@ import java.util.Map;
 import com.example.mgkan.project2.adapter.RecipeAdapter;
 import com.example.mgkan.project2.setup.DBAssetHelper;
 
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+
 /**
  * An activity representing a list of Items. This activity
  * has different presentations for handset and tablet-size devices. On
@@ -71,7 +73,7 @@ public class ItemListActivity extends AppCompatActivity {
 
     mHelper = RecipeSQliteHelper.getInstance(this);
     recipes = mHelper.getRecipeList();
-    recyclerView.setAdapter(new RecipeAdapter(this, recipes));
+    recyclerView.setAdapter(new AlphaInAnimationAdapter(new RecipeAdapter(this, recipes)));
   }
 //
 //  public class SimpleItemRecyclerViewAdapter
