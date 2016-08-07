@@ -9,7 +9,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
  */
 public class DBAssetHelper extends SQLiteAssetHelper{
 
-  private static final String DATABASE_NAME = "db_recipes";
+  private static final String DATABASE_NAME = "RECIPE_DB";
   private static final int DATABASE_VERSION = 7;
 
   public DBAssetHelper(Context context) {
