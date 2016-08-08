@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.mgkan.project2.ItemDetailActivity;
 import com.example.mgkan.project2.R;
-import com.example.mgkan.project2.Recipe;
+import com.example.mgkan.project2.model.Recipe;
 
 
 import java.util.List;
@@ -71,11 +71,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         Recipe recipe = mRecipe.get(position);
 
-
 //        if (pet.getName() != null) {
 
 //              String[] splitSteps = recipe.getSteps().split("-");
-
               holder.title.setText(recipe.getName());
               holder.cooking_time.setText(recipe.getCook_time()+" mins");
               holder.serving.setText(recipe.getServings()+" people");

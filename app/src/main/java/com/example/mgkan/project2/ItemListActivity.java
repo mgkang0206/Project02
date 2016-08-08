@@ -1,29 +1,17 @@
 package com.example.mgkan.project2;
 
-import android.Manifest;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.widget.CursorAdapter;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Map;
 
 import com.example.mgkan.project2.adapter.RecipeAdapter;
-import com.example.mgkan.project2.setup.DBAssetHelper;
+import com.example.mgkan.project2.helper.RecipeSQliteHelper;
+import com.example.mgkan.project2.model.Recipe;
 
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 
@@ -50,7 +38,8 @@ public class ItemListActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_item_list);
 
-    DBAssetHelper dbSetup = new DBAssetHelper(ItemListActivity.this);
+    RecipeSQliteHelper dbSetup = new RecipeSQliteHelper(ItemListActivity.this);
+
     dbSetup.getReadableDatabase();
 
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -74,6 +63,7 @@ public class ItemListActivity extends AppCompatActivity {
     mHelper = RecipeSQliteHelper.getInstance(this);
     recipes = mHelper.getRecipeList();
     recyclerView.setAdapter(new AlphaInAnimationAdapter(new RecipeAdapter(this, recipes)));
+
   }
 //
 //  public class SimpleItemRecyclerViewAdapter

@@ -1,4 +1,6 @@
-package com.example.mgkan.project2;
+package com.example.mgkan.project2.model;
+
+import android.graphics.drawable.Drawable;
 
 /**
  * Created by mgkan on 2016-08-06.
@@ -75,7 +77,7 @@ public class Recipe {
   }
 
   public String getImage() {
-    return image;
+    return "R.drawable."+image;
   }
 
   public void setImage(String image) {
