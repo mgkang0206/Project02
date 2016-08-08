@@ -1,5 +1,8 @@
-BEGIN TRANSACTION;
-CREATE TABLE "tbl_recipes" (
+DROP TABLE IF EXISTS "android_metadata";
+CREATE TABLE android_metadata (locale TEXT);
+INSERT INTO "android_metadata" VALUES('en_US');
+DROP TABLE IF EXISTS "recipes";
+CREATE TABLE "recipes" (
 	`recipe_id`	INTEGER PRIMARY KEY AUTOINCREMENT,
 	`category`	TEXT,
 	`recipe_name`	TEXT,
@@ -10,7 +13,7 @@ CREATE TABLE "tbl_recipes" (
 	`steps`	TEXT,
 	`image`	TEXT
 );
-INSERT INTO `tbl_recipes` VALUES (2,'Appetizer','Spicy Bbq Chicken Wings','15','6','Prepare the wings and season them up to 2 days in advance for this make-ahead appetizer recipe. On party day, just dip them in the purchased barbecue sauce and bake.
+INSERT INTO "recipes" VALUES(2,'Appetizer','Spicy Bbq Chicken Wings','15','6','Prepare the wings and season them up to 2 days in advance for this make-ahead appetizer recipe. On party day, just dip them in the purchased barbecue sauce and bake.
 
 ','1 tablespoon chili powder*&^1 1/2 teaspoons black pepperr*&^1 teaspoon salt*&^1 teaspoon ground red pepper*&^3 pounds chicken wings, tips removed (about 12 pieces)1 cup bottled barbecue sauce*&^Celery leaves, for garnish','<ol>
 <li>1. Heat oven to 400 degrees F. Line baking sheet with aluminum foil.</li>
@@ -19,37 +22,15 @@ INSERT INTO `tbl_recipes` VALUES (2,'Appetizer','Spicy Bbq Chicken Wings','15','
 <li>4. Bake in 400 degree F oven 40 to 45 minutes, turning every 15 minutes. With tongs, remove wings from oven and dip in sauce. Return to oven.</li>
 <li>5. Bake in 400 degree F oven 10 minutes or until glazed. Place on serving platter. Garnish with celery leaves. Makes 24 pieces.</li>
 </ol>','spicy_garlic_chicken_wing');
-INSERT INTO `tbl_recipes` VALUES (3,'Appetizer','Spicy Chicken Tacos','15','4','Crisp taco shells offer a pleasant contrast in texture to the creamy chipotle and chicken salad. Add the typical taco toppings of cheese, lettuce, tomato, and green onion.','<ol>
-<li>1 1/2 cups shredded chicken breast (from a rotisserie chicken)</li>
-<li>1 chipotle chile in adobo (from a 7-ounce can), chopped</li>
-<li>1 tablespoon adobo sauce</li>
-<li>1/3 cup light mayonnaise</li>
-<li>8 taco shells</li>
-<li>1/4 cup Mexican-blend shredded cheese</li>
-<li>1/2 cup chopped lettuce</li>
-<li>1 plum tomato, chopped</li>
-<li>2 scallions, sliced</li>
-</ol>','<ol>
+INSERT INTO "recipes" VALUES(3,'Appetizer','Spicy Chicken Tacos','15','4','Crisp taco shells offer a pleasant contrast in texture to the creamy chipotle and chicken salad. Add the typical taco toppings of cheese, lettuce, tomato, and green onion.','1 1/2 cups shredded chicken breast (from a rotisserie chicken)*&^1 chipotle chile in adobo (from a 7-ounce can), chopped*&^1 tablespoon adobo sauce*&^1/3 cup light mayonnaise*&^8 taco shells*&^1/4 cup Mexican-blend shredded cheese*&^1/2 cup chopped lettuce*&^1 plum tomato, chopped*&^2 scallions, sliced','<ol>
 <li>1. Warm chicken in microwave on high for 1 minute. Mix together with chipotle chile, adobo sauce and mayonnaise.</li>
 <li>2. Place 2 to 3 tablespoons of chicken mixture in each taco shell and divide cheese, lettuce, tomato and scallions among tacos. Serve immediately.</li>
 </ol>','chicken_tacos');
-INSERT INTO `tbl_recipes` VALUES (4,'Appetizer','Quinoa Bite','30','6','So I am always looking for a delicious yet healthy appetizer to serve when I am hosting a get together. The other night I made these and everyone loved them!
+INSERT INTO "recipes" VALUES(4,'Appetizer','Quinoa Bite','30','6','So I am always looking for a delicious yet healthy appetizer to serve when I am hosting a get together. The other night I made these and everyone loved them!
 
 Of course all of my guest asked me, “what are in these?” With a smile and knowing a mountain of questions were about to blossom, I said “Quinoa.” The replies, “Quinoa? What is that??”
 
-So I danced at the opportunity to educate my guest on this wonderful grain free (yes, quinoa is not a grain, but a seed) ingredient.','<ol>
-<li>1½ cup cooked quinoa (1/2 cup uncooked will make 1½ cups cooked)</li>
-<li>2 large eggs</li>
-<li>1 green onion stalk, diced</li>
-<li>1 clove garlic, minced</li>
-<li>½ cup shredded raw parmesan cheese</li>
-<li>3 tbsp fresh cilantro, chopped</li>
-<li>2 tbsp almond flour</li>
-<li>¼ tsp unrefined seasoning salt</li>
-<li>⅛ tsp ground pepper</li>
-<li>½ tsp fresh lemon juice</li>
-<li>1 tsp organic olive oil</li>
-</ol>','<ol>
+So I danced at the opportunity to educate my guest on this wonderful grain free (yes, quinoa is not a grain, but a seed) ingredient.','1½ cup cooked quinoa (1/2 cup uncooked will make 1½ cups cooked)*&^2 large eggs*&^1 green onion stalk, diced*&^1 clove garlic, minced*&^½ cup shredded raw parmesan cheese*&^3 tbsp fresh cilantro, chopped*&^2 tbsp almond flour*&^¼ tsp unrefined seasoning salt*&^⅛ tsp ground pepper*&^½ tsp fresh lemon juice*&^1 tsp organic olive oil','<ol>
 <li>Preheat oven to 350 F.</li>
 <li>Mix together all ingredients in a medium bowl.</li>
 <li>Grease a mini muffin pan with coconut oil.</li>
@@ -57,7 +38,7 @@ So I danced at the opportunity to educate my guest on this wonderful grain free 
 <li>Bake for 20 minutes.</li>
 <li>Serve hot.</li>
 </ol>','quinoa_bite');
-INSERT INTO `tbl_recipes` VALUES (5,'Breakfast','Breakfast Pizza','25','8','','<ol>
+INSERT INTO "recipes" VALUES(5,'Breakfast','Breakfast Pizza','25','8','','<ol>
 <li>Nonstick cooking spray</li>
 <li>1 1/2 cups frozen loose-pack diced hash brown potatoes with peppers and onion</li>
 <li>1 clove garlic, minced</li>
@@ -77,7 +58,7 @@ INSERT INTO `tbl_recipes` VALUES (5,'Breakfast','Breakfast Pizza','25','8','','<
 <li>3. To assemble pizza, place the bread shell on a large baking sheet or a 12-inch pizza pan. Sprinkle half of the cheese over the bread shell. Top with cooked egg mixture, tomatoes, and the remaining cheese.</li>
 <li>4. Bake about 10 minutes or until cheese is melted. Sprinkle with the 1/4 cup shredded basil. Cut into wedges to serve.</li>
 </ol>','breakfast_pizza');
-INSERT INTO `tbl_recipes` VALUES (6,'Breakfast','Breakfast Blintzes','45','15','Plan a brunch around these delightful ricotta-filled crepes made with the season''s fresh berries.','<ol>
+INSERT INTO "recipes" VALUES(6,'Breakfast','Breakfast Blintzes','45','15','Plan a brunch around these delightful ricotta-filled crepes made with the season''s fresh berries.','<ol>
 <li>1 egg</li>
 <li>1 1/2 cups skim milk</li>
 <li>1 cup all-purpose flour</li>
@@ -95,7 +76,7 @@ INSERT INTO `tbl_recipes` VALUES (6,'Breakfast','Breakfast Blintzes','45','15','
 <li>2. Spray a shallow baking pan with nonstick cooking spray. Set aside. For filling, in a bowl combine ricotta cheese, the 2 tablespoons orange marmalade, the sugar, and cinnamon. Spoon about 2 tablespoons filling onto the unbrowned side of a crepe; spread out slightly. Fold in half. Fold in half again, forming a wedge. Arrange in prepared pan. Repeat with remaining filling and crepes.</li>
 <li>3. Bake in a 350 degree F oven for 15 to 20 minutes or until heated through. To serve, spoon 2 teaspoons of sour cream and 1 teaspoon of marmalade onto each blintz. Sprinkle with berries. Makes 15 servings.</li>
 </ol>','Breakfast_Blintzes');
-INSERT INTO `tbl_recipes` VALUES (7,'Breakfast','Farmer''s Breakfast','50','9','This egg and potato skillet meal includes salami, mushrooms, and sweet peppers, making it a satisfying main dish for breakfast or dinner.','<ol>
+INSERT INTO "recipes" VALUES(7,'Breakfast','Farmer''s Breakfast','50','9','This egg and potato skillet meal includes salami, mushrooms, and sweet peppers, making it a satisfying main dish for breakfast or dinner.','<ol>
 <li>8 small potatoes, sliced 1/4-inch thick</li>
 <li>2 tablespoons cooking oil</li>
 <li>2 tablespoons butter or margarine</li>
@@ -116,7 +97,7 @@ INSERT INTO `tbl_recipes` VALUES (7,'Breakfast','Farmer''s Breakfast','50','9','
 <li>4. Combine the eggs with the milk and parsley. Season with salt and black pepper. Add to skillet. Reduce heat to medium. Cook, stirring occasionally, until eggs are just set but still moist.</li>
 <li>5. Sprinkle with cheese. Cover and cook, without stirring, for 3 minutes more or until eggs are set in the center. Serve hot with toasted bagels or English muffins, if you like. Makes 8 to 10 servings.</li>
 </ol>','farmers_breakfast');
-INSERT INTO `tbl_recipes` VALUES (8,'Breakfast','Cinnamon Breakfast Muffins','15','12','These muffins are dipped in melted butter then a yummy combination of cinnamon and sugar before serving warm as a wonderful brunch treat.','<ol>
+INSERT INTO "recipes" VALUES(8,'Breakfast','Cinnamon Breakfast Muffins','15','12','These muffins are dipped in melted butter then a yummy combination of cinnamon and sugar before serving warm as a wonderful brunch treat.','<ol>
 <li>1 1/2 cups all-purpose flour</li>
 <li>1/2 cup sugar</li>
 <li>1 1/2 teaspoons baking powder</li>
@@ -134,7 +115,7 @@ INSERT INTO `tbl_recipes` VALUES (8,'Breakfast','Cinnamon Breakfast Muffins','15
 <li>3. Spoon batter into prepared muffin cups. Bake in the preheated oven for 20 to 25 minutes or until a wooden toothpick inserted in centers comes out clean.</li>
 <li>4. Meanwhile, combine the 1/4 cup sugar and the cinnamon. Cool muffins in muffin cups on a wire rack for 5 minutes. Remove from muffin cups. Dip muffins into the 1/4 cup melted butter, then into sugar-cinnamon mixture. Serve warm. Makes 12 muffins.</li>
 </ol>','cinnamon_breakfast_muffins');
-INSERT INTO `tbl_recipes` VALUES (9,'Breakfast','Lemon Breakfast Parfaits','25','6','','<ol>
+INSERT INTO "recipes" VALUES(9,'Breakfast','Lemon Breakfast Parfaits','25','6','','<ol>
 <li>3/4 cup fat-free milk</li>
 <li>Dash salt</li>
 <li>1/3 cup quick-cooking couscous</li>
@@ -148,7 +129,7 @@ INSERT INTO `tbl_recipes` VALUES (9,'Breakfast','Lemon Breakfast Parfaits','25',
 <li>2. In a small bowl combine yogurt, sour cream, honey, and lemon peel; stir into couscous mixture.</li>
 <li>3. To serve, spoon half of the fruit into 6 parfait glasses. Spoon couscous mixture over fruit; top with the remaining fruit. Makes 6 servings.</li>
 </ol>','lemon_breakfast_parfaits');
-INSERT INTO `tbl_recipes` VALUES (10,'Breakfast','Blueberry Breakfast Bars','25','12','','<ol>
+INSERT INTO "recipes" VALUES(10,'Breakfast','Blueberry Breakfast Bars','25','12','','<ol>
 <li>3/4 cup all-purpose flour</li>
 <li>3/4 cup whole wheat flour</li>
 <li>1/2 cup packed dark brown sugar</li>
@@ -167,7 +148,7 @@ INSERT INTO `tbl_recipes` VALUES (10,'Breakfast','Blueberry Breakfast Bars','25'
 <li>4. Using an offset spatula, spread the blueberry preserves over the baked crust. Sprinkle the reserved flour-butter mixture evenly over the top of preserves. Bake for 30 to 35 minutes more or until golden brown.</li>
 <li>5. Let the bars cool in the pan for 10 minutes. Using the parchment paper handles remove the bars from the pan and cool completely on a wire rack. Cut into bars.</li>
 </ol>','blueberry_breakfast_bars');
-INSERT INTO `tbl_recipes` VALUES (11,'Main','Sesame Chicken Salad','20','6','For this European-style main dish salad recipe, mix strips of cooked chicken, crisp radishes, baby corn, and green onions. Toss with a dressing of sesame oil, rice vinegar, and sesame seeds.
+INSERT INTO "recipes" VALUES(11,'Main','Sesame Chicken Salad','20','6','For this European-style main dish salad recipe, mix strips of cooked chicken, crisp radishes, baby corn, and green onions. Toss with a dressing of sesame oil, rice vinegar, and sesame seeds.
 ','<ol>
 <li>1 10 ounce package torn European-style or Italian-style salad greens</li>
 <li>2 cups shredded or chopped cooked chicken</li>
@@ -184,7 +165,7 @@ INSERT INTO `tbl_recipes` VALUES (11,'Main','Sesame Chicken Salad','20','6','For
 <li>2. For dressing, in a screw-top jar combine the orange juice, vinegar, sesame oil, and pepper. Cover and shake well.</li>
 <li>3. Pour dressing over greens mixture; toss gently to coat. Divide greens mixture among 6 salad bowls. Sprinkle with sesame seed. Makes 6 servings.</li>
 </ol>','sesame_chicken_salad');
-INSERT INTO `tbl_recipes` VALUES (12,'Main','Caribbean Couscous Salad','20','10','','<ol>
+INSERT INTO "recipes" VALUES(12,'Main','Caribbean Couscous Salad','20','10','','<ol>
 <li>1 1/4 cups water</li>
 <li>1 cup whole wheat couscous</li>
 <li>1 15 ounce can black beans, rinsed and drained</li>
@@ -208,7 +189,7 @@ INSERT INTO `tbl_recipes` VALUES (12,'Main','Caribbean Couscous Salad','20','10'
 <li>Ginger-Lime Vinaigrette</li>
 <li>1. In a small bowl whisk together cilantro, lime juice, canola oil, ginger, salt, and cayenne pepper.</li>
 </ol>','caribbean_couscous_salad');
-INSERT INTO `tbl_recipes` VALUES (13,'Main','Zesty Three-bean Salad','25','10','Sweet soybeans, kidney beans, and garbanzo beans combine to make this tasty salad recipe that''s perfect for your next potluck.','<ol>
+INSERT INTO "recipes" VALUES(13,'Main','Zesty Three-bean Salad','25','10','Sweet soybeans, kidney beans, and garbanzo beans combine to make this tasty salad recipe that''s perfect for your next potluck.','<ol>
 <li>2 cups frozen sweet soybeans (edamame)</li>
 <li>1 15 ounce can kidney beans, rinsed and drained</li>
 <li>1 15 ounce can garbanzo beans (chickpeas), rinsed and drained</li>
@@ -222,7 +203,7 @@ INSERT INTO `tbl_recipes` VALUES (13,'Main','Zesty Three-bean Salad','25','10','
 <li>2. In large bowl combine cooked soybeans, kidney beans, garbanzo beans, onion, and cilantro.</li>
 <li>3. In small bowl whisk together olive oil, lime peel, lime juice, and 1/2 teaspoon salt. Pour over bean mixture and toss to coat. Cover and refrigerate up to 24 hours. Stir well before serving. Makes 10 servings.</li>
 </ol>','zesty_three_bean_salad');
-INSERT INTO `tbl_recipes` VALUES (14,'Main','Popcorn Chicken With Coconut Slaw','10','4','Heap the chicken in a bowl or put it in a flavored tortilla. Kids will love the tropical twist to this 10-minute meal.','<ol>
+INSERT INTO "recipes" VALUES(14,'Main','Popcorn Chicken With Coconut Slaw','10','4','Heap the chicken in a bowl or put it in a flavored tortilla. Kids will love the tropical twist to this 10-minute meal.','<ol>
 <li>1 10 - 12 ounce package frozen cooked, breaded popcorn chicken</li>
 <li>1/2 16 ounce package shredded cabbage with carrot (coleslaw mix) (4 cups)</li>
 <li>1 cup mango pieces or quartered strawberries</li>
@@ -232,7 +213,7 @@ INSERT INTO `tbl_recipes` VALUES (14,'Main','Popcorn Chicken With Coconut Slaw',
 <li>1. Cook popcorn chicken in the microwave oven according to package directions. Meanwhile, in a bowl combine shredded cabbage with mango pieces or strawberries and coconut. Add vinaigrette; toss to coat. Add cooked chicken and toss.</li>
 <li>2. Divide mixture among 4 goblets or bowls. Season to taste with salt and pepper. Top with additional coconut, if desired. Makes 4 servings.</li>
 </ol>','popcorn_chicken_with_coconut_slaw');
-INSERT INTO `tbl_recipes` VALUES (15,'Main','Jambalaya Pasta','35','6','Here''s a new twist on a New Orleans classic. With shrimp, sausage, ham, and pasta, it''s a filling main dish that''s ready in just 35 minutes.','<ol>
+INSERT INTO "recipes" VALUES(15,'Main','Jambalaya Pasta','35','6','Here''s a new twist on a New Orleans classic. With shrimp, sausage, ham, and pasta, it''s a filling main dish that''s ready in just 35 minutes.','<ol>
 <li>1 cup finely chopped onion</li>
 <li>1 cup finely chopped green sweet pepper</li>
 <li>1 cup finely chopped celery</li>
@@ -257,7 +238,7 @@ INSERT INTO `tbl_recipes` VALUES (15,'Main','Jambalaya Pasta','35','6','Here''s 
 <li>3. Meanwhile, cook pasta according to package directions, adding shrimp the last 1 to 3 minutes or until opaque. Drain and return to the pan.</li>
 <li>4. Add sausage and ham to tomato sauce; heat through. Add sauce mixture and parsley to pasta mixture, tossing gently to combine. Makes 6 to 8 servings.</li>
 </ol>','jambalaya_pasta');
-INSERT INTO `tbl_recipes` VALUES (16,'Main','Pasta Pizza','55','6','This recipe arranges favorite casserole ingredients to create an outstanding dish that looks and tastes like pizza.','<ol>
+INSERT INTO "recipes" VALUES(16,'Main','Pasta Pizza','55','6','This recipe arranges favorite casserole ingredients to create an outstanding dish that looks and tastes like pizza.','<ol>
 <li>5 ounces packaged dried corkscrew macaroni (2 cups)</li>
 <li>1 beaten egg</li>
 <li>1/4 cup milk</li>
@@ -277,7 +258,7 @@ INSERT INTO `tbl_recipes` VALUES (16,'Main','Pasta Pizza','55','6','This recipe 
 <li>3. Meanwhile, in a large skillet cook ground beef, onion, and garlic until meat is brown. Drain fat. Add pepper strips, undrained tomatoes (cut up any large pieces of tomato), and Italian seasoning to meat mixture. Bring to boiling; reduce heat. Simmer, uncovered, for 10 to 12 minutes or until peppers are crisp-tender and most of the liquid is evaporated, stirring once or twice. Stir in mushrooms and crushed red pepper.</li>
 <li>4. Spoon meat mixture over pasta crust. Sprinkle with mozzarella cheese. Bake for 10 to 12 minutes more or until heated through and cheese is melted. To serve, cut into wedges. Makes 6 main-dish servings.</li>
 </ol>','pasta_pizza');
-INSERT INTO `tbl_recipes` VALUES (17,'Main','Spaghetti and Meatballs','20','6','Try meatballs and spaghetti sauce from scratch. Serve these ground beef and sausage meatballs and you''ll remember why this is one of the best-loved pasta recipes for family meals.','<ol>
+INSERT INTO "recipes" VALUES(17,'Main','Spaghetti and Meatballs','20','6','Try meatballs and spaghetti sauce from scratch. Serve these ground beef and sausage meatballs and you''ll remember why this is one of the best-loved pasta recipes for family meals.','<ol>
 <li>Meatballs:</li>
 <li>6 ounces Italian turkey sausage</li>
 <li>6 ounces extra-lean ground beef</li>
@@ -315,7 +296,7 @@ INSERT INTO `tbl_recipes` VALUES (17,'Main','Spaghetti and Meatballs','20','6','
 <li>2. Stir in tomatoes with their juice, puree, oregano, basil, sugar, salt and pepper. Bring to a boil; reduce heat and simmer, covered, for 20 minutes. Add meatballs; simmer 10 minutes.</li>
 <li>3. Cook spaghetti following package directions. Drain and transfer to a bowl. Top with meatballs and sauce. Sprinkle with Parmesan and serve.</li>
 </ol>','spaghetti_and_meatballs');
-INSERT INTO `tbl_recipes` VALUES (18,'Main','Broiled Salmon with Miso Glaze for Two','25','2','Combine miso, mirin, soy sauce and ginger, and you get a rich and delectable Japanese-style glaze for salmon (or chicken, tofu, pork chops, etc.). These versatile ingredients last for months in the refrigerator and add incomparable flavor.','<ol>
+INSERT INTO "recipes" VALUES(18,'Main','Broiled Salmon with Miso Glaze for Two','25','2','Combine miso, mirin, soy sauce and ginger, and you get a rich and delectable Japanese-style glaze for salmon (or chicken, tofu, pork chops, etc.). These versatile ingredients last for months in the refrigerator and add incomparable flavor.','<ol>
 <li>1 tablespoon miso, preferably white</li>
 <li>1 tablespoon mirin</li>
 <li>1 1/2 teaspoons reduced-sodium soy sauce</li>
@@ -330,7 +311,7 @@ INSERT INTO `tbl_recipes` VALUES (18,'Main','Broiled Salmon with Miso Glaze for 
 <li>2. Whisk miso, mirin, soy sauce, ginger and hot sauce in a small bowl until smooth.</li>
 <li>3. Place salmon fillets, skinned-side down, in the prepared pan. Brush generously with the miso mixture. Broil the salmon until just cooked through in the center, 6 to 8 minutes. Garnish the salmon with scallions, cilantro and sesame seeds.</li>
 </ol>','broiled_salmon_with_miso_glaze_for_two');
-INSERT INTO `tbl_recipes` VALUES (19,'Main','Grilled Beef-Tenderloin Skewers with Red-Miso Glaze','30','4','Addictively tangy and salty-sweet, these skewers are also delicious when made with chicken breast or pork tenderloin.','<ol>
+INSERT INTO "recipes" VALUES(19,'Main','Grilled Beef-Tenderloin Skewers with Red-Miso Glaze','30','4','Addictively tangy and salty-sweet, these skewers are also delicious when made with chicken breast or pork tenderloin.','<ol>
 <li>1/4 cup plus 2 tablespoons vegetable oil</li>
 <li>4 garlic cloves, thinly sliced</li>
 <li>1/4 cup low-sodium soy sauce</li>
@@ -343,7 +324,7 @@ INSERT INTO `tbl_recipes` VALUES (19,'Main','Grilled Beef-Tenderloin Skewers wit
 <li>1. Preheat a grill. In a saucepan, heat the vegetable oil. Add the garlic and cook over low heat until crisp, stirring, about 3 minutes. Using a slotted spoon, transfer the garlic to a blender; reserve the garlic oil for another use. Add the soy sauce, miso, sesame oil, sugar and salt to the blender and puree.</li>
 <li>2. Thread the meat on skewers. Lightly brush the meat with some of the miso glaze. Grill over high heat for 1 minute. Brush with the miso glaze a second time and grill, turning, until charred, about 2 minutes; serve.</li>
 </ol>','grilled_beef_tenderloin_skewers_with_red_miso_glaze');
-INSERT INTO `tbl_recipes` VALUES (20,'Main','Multigrain Grilled Cheese Sandwiches','45','4','Seamus Mullen''s gooey Spanish version of a grilled cheese contains Mahon, Manchego and Idiazabal, as well as tomatoes that are roasted slowly overnight. EASY WAY: Opt for more accessible cheeses and quick-cook the tomatoes in high heat.','<ol>
+INSERT INTO "recipes" VALUES(20,'Main','Multigrain Grilled Cheese Sandwiches','45','4','Seamus Mullen''s gooey Spanish version of a grilled cheese contains Mahon, Manchego and Idiazabal, as well as tomatoes that are roasted slowly overnight. EASY WAY: Opt for more accessible cheeses and quick-cook the tomatoes in high heat.','<ol>
 <li>4 plum tomatoes, halved lengthwise</li>
 <li>2 tablespoons extra-virgin olive oil, plus more for brushing</li>
 <li>1 tablespoon sherry vinegar</li>
@@ -358,7 +339,7 @@ INSERT INTO `tbl_recipes` VALUES (20,'Main','Multigrain Grilled Cheese Sandwiche
 <li>1. Preheat the oven to 450 degrees. In a bowl, toss the tomatoes with the 2 tablespoons of oil, the vinegar and thyme sprig and season with salt and pepper. Arrange the tomatoes cut side down on a rimmed baking sheet and roast in the upper third of the oven for 10 minutes, until the skins begin to shrivel. Remove the skins. Turn the tomatoes over and roast for 10 minutes longer, until softened and lightly browned. Sprinkle with the garlic and thyme leaves and season lightly with salt and pepper.</li>
 <li>2. Preheat a panini press or grill pan. Arrange the bread slices in pairs and very lightly brush 1 side of each slice with oil. Turn the bread oiled side down and mound half of the cheeses on 4 of the slices. Top with the tomatoes, the remaining cheese and the remaining bread, oiled side up. Grill until the bread is toasted and the cheese is melted. Cut the sandwiches in half and serve.</li>
 </ol>','multigrain_grilled_cheese_sandwiches');
-INSERT INTO `tbl_recipes` VALUES (21,'Dessert','Turtle Cake','30','16','If you''re partial to the chocolate, caramel, and pecan combination of turtle candy, you''ll love these chocolate cake squares drizzled with homemade fudge sauce and caramel ice cream topping and sprinkled with toasted pecans.','<ol>
+INSERT INTO "recipes" VALUES(21,'Dessert','Turtle Cake','30','16','If you''re partial to the chocolate, caramel, and pecan combination of turtle candy, you''ll love these chocolate cake squares drizzled with homemade fudge sauce and caramel ice cream topping and sprinkled with toasted pecans.','<ol>
 <li>Cake:</li>
 <li>1 egg</li>
 <li>2/3 cup vegetable oil</li>
@@ -387,7 +368,7 @@ INSERT INTO `tbl_recipes` VALUES (21,'Dessert','Turtle Cake','30','16','If you''
 <li>1. Mix sugar and milk in heavy saucepan until sugar is dissolved. Add butter and bring to a boil. Remove from heat. Place chocolate chips in a bowl; pour hot mixture on top. Stir until smooth.</li>
 <li>2. Spread warm chocolate topping over cooled cake. Drizzle caramel topping over frosting; sprinkle with crushed pecans.</li>
 </ol>','turtle_cake');
-INSERT INTO `tbl_recipes` VALUES (22,'Dessert','Battenberg Cake','75','8','This checkerboard loaf cake recipe calls for two pound cake mixes, raspberry jam, purchased marzipan, and fresh raspberries and mint leaves. Make the centerpiece dessert to serve at a luncheon or tea party.','<ol>
+INSERT INTO "recipes" VALUES(22,'Dessert','Battenberg Cake','75','8','This checkerboard loaf cake recipe calls for two pound cake mixes, raspberry jam, purchased marzipan, and fresh raspberries and mint leaves. Make the centerpiece dessert to serve at a luncheon or tea party.','<ol>
 <li>2 16 ounce package pound cake mix</li>
 <li>Red paste food coloring</li>
 <li>2 tablespoons orange juice</li>
@@ -414,7 +395,7 @@ INSERT INTO `tbl_recipes` VALUES (22,'Dessert','Battenberg Cake','75','8','This 
 <li>Sugared Raspberries and Mint Leaves</li>
 <li>1. Place dried egg whites and water in a 6-ounce custard cup; stir together with a wire whisk or fork. Place superfine or granulated sugar in a shallow dish. Using a pastry brush, brush egg white mixture onto berries and mint leaves; roll in sugar. Allow to dry on a wire rack. Arrange atop marzipan.</li>
 </ol>','battenberg_cake');
-INSERT INTO `tbl_recipes` VALUES (23,'Dessert','Pound Cake','30','16','Pound cake got its name from the weight of the main ingredients in the recipe. This version is lighter, but still serves up a rich, buttery dessert.','<ol>
+INSERT INTO "recipes" VALUES(23,'Dessert','Pound Cake','30','16','Pound cake got its name from the weight of the main ingredients in the recipe. This version is lighter, but still serves up a rich, buttery dessert.','<ol>
 <li>1 cup (2 sticks) unsalted butter, softened</li>
 <li>2 3/4 cups all-purpose flour, plus more for dusting pan</li>
 <li>1/2 teaspoon baking soda</li>
@@ -433,7 +414,7 @@ INSERT INTO `tbl_recipes` VALUES (23,'Dessert','Pound Cake','30','16','Pound cak
 <li>5. Spoon batter into prepared pan. Bake at 350 degrees F for 1 hour, until cake springs back when pressed. Cool in pan on rack for 10 minutes. Place rack over cake, carefully flip to release cake from pan; cool.</li>
 <li>6. Blend confectioners'' sugar and 1 to 2 tablespoons water until smooth. Place cake on rack over parchment paper. Pour glaze over, letting it drip down side.</li>
 </ol>','pound_cake');
-INSERT INTO `tbl_recipes` VALUES (24,'Dessert','Pudding Pops','25','16','Chocolate pudding and banana cream pudding make delicious low-calorie, fat-free frozen treats. Try your own favorite flavors.','<ol>
+INSERT INTO "recipes" VALUES(24,'Dessert','Pudding Pops','25','16','Chocolate pudding and banana cream pudding make delicious low-calorie, fat-free frozen treats. Try your own favorite flavors.','<ol>
 <li>1 4-serving-size pkg. sugar-free instant chocolate or chocolate fudge pudding mix</li>
 <li>2 cups fat-free milk</li>
 <li>1 4-serving-size pkg. sugar-free instant banana cream, butterscotch, pistachio, vanilla, or white chocolate pudding mix</li>
@@ -444,7 +425,7 @@ INSERT INTO `tbl_recipes` VALUES (24,'Dessert','Pudding Pops','25','16','Chocola
 <li>3. Place desired flavor pudding mix in another medium bowl. Add 2 cups milk. Use a wire whisk or rotary beater to beat the pudding for 2 minutes or until well mixed. Remove pudding-filled cups from freezer; uncover. Spoon 2 tablespoons of second flavor of pudding over frozen pudding in cups.</li>
 <li>4. Cover each cup with foil. Make a small hole in center of foil with the sharp knife. Push a wooden stick through the hole and into the top layer of pudding in the cup. Put the baking pan in the freezer. Freeze for 4 to 6 hours or until pudding pops are firm. Remove from freezer. Let stand for 15 to 20 minutes before serving. Remove pudding pops from the cups. Makes 16 pops.</li>
 </ol>','pudding_pops');
-INSERT INTO `tbl_recipes` VALUES (25,'Dessert','Ice Cream Sandwiches','10','12','','<ol>
+INSERT INTO "recipes" VALUES(25,'Dessert','Ice Cream Sandwiches','10','12','','<ol>
 <li>1 cup canned solid-pack pumpkin</li>
 <li>2 cups all-purpose flour</li>
 <li>1/4 cup cocoa powder</li>
@@ -461,7 +442,7 @@ INSERT INTO `tbl_recipes` VALUES (25,'Dessert','Ice Cream Sandwiches','10','12',
 <li>3. Drop batter by heaping tablespoonfuls onto prepared baking sheets. Bake at 350 degrees for 15 minutes. Remove cookies from oven; press down with a flat-bottom glass or measuring cup. Transfer to wire racks and cool completely. Repeat with all dough.</li>
 <li>4. Once cookies are cool, place mini chips in a small bowl. Top one cookie with 3 tablespoons of the ice cream (on flat side of cookie). Press the flat side of another cookie into ice cream. Roll edge of sandwich in chips. Repeat with all cookies and ice cream, rolling half of the sandwiches in mini chips. Wrap each sandwich in plastic. Freeze at least 3 hours or overnight.</li>
 </ol>','ice_cream_sandwiches');
-INSERT INTO `tbl_recipes` VALUES (26,'Drinks','Caipirinha Cocktail','5','15','Cachaca is a Brazilian rumlike liquor made from sugarcane and can be found in most liquor stores.
+INSERT INTO "recipes" VALUES(26,'Drinks','Caipirinha Cocktail','5','15','Cachaca is a Brazilian rumlike liquor made from sugarcane and can be found in most liquor stores.
 
 ','<ol>
 <li>limes, ends trimmed, cut lengthwise into 8 wedges, then crosswise cut into 1/2-inch pieces</li>
@@ -472,7 +453,7 @@ INSERT INTO `tbl_recipes` VALUES (26,'Drinks','Caipirinha Cocktail','5','15','Ca
 </ol>','<ol>
 <li>1. Place limes and simple syrup in a large pitcher and muddle until limes begin to break down. Add cachaca, ice, and cold water to pitcher. Stir well and serve.</li>
 </ol>','caipirinha_cocktail');
-INSERT INTO `tbl_recipes` VALUES (27,'Drinks','Spiced Citrus Cocktail','10','4','Cranberry syrup adds a pop of color and flavor to this layered citrus cocktail.','1 cup cranberry syrup*, chilled$%^
+INSERT INTO "recipes" VALUES(27,'Drinks','Spiced Citrus Cocktail','10','4','Cranberry syrup adds a pop of color and flavor to this layered citrus cocktail.','1 cup cranberry syrup*, chilled$%^
 4 ounce (1/2 cup) vodka, chilled in the freezer$%^
 2 cups lemonade, chilled"\n"
 Red and white gum drops (optional)"\n""\n"
@@ -494,7 +475,7 @@ Candied Cranberries"\n"
 2. Add the cranberries to the mixture and stir. Let stand until room temperature. Transfer to a bowl; cover and chill overnight."\n"
 3. Drain cranberries well, reserving syrup and vanilla bean. Cover and chill the syrup with the vanilla bean for up to 3 weeks. Remove 1/2 (about 2 cups) of the cranberries. Toss with 1/4 cup red decorating sugar. Toss remaining cranberries with the 1/4 cup white sugar."\n"
 4. Spread the cranberries out in a parchment paper-lined shallow baking pan, keeping the colors separate. Let stand for 1 hour to dry. Store loosely covered at room temperature for up to 1 week."\n"','spiced_citrus_cocktail');
-INSERT INTO `tbl_recipes` VALUES (28,'Drinks','Lemonade Iced Tea Cocktail','5','15','Refreshing, delicious and zero calories, this lemonade iced tea is perfect for a summer afternoon.','2 quarts water"\n"
+INSERT INTO "recipes" VALUES(28,'Drinks','Lemonade Iced Tea Cocktail','5','15','Refreshing, delicious and zero calories, this lemonade iced tea is perfect for a summer afternoon.','2 quarts water"\n"
 1 1/2 cups Stevia In The Raw® Bakers Bag"\n"
 1 1/2 cups cups (about 7 large lemons) fresh squeezed lemon juice with pulp, seeded"\n"
 2 1/2 quarts unsweetened brewed iced tea"\n"
@@ -503,7 +484,7 @@ Fresh mint leaves for garnish"\n"
 Ice cubes"\n"
 ','1. In 2-1/2 quart pitcher combine water, Stevia In The Raw and lemon juice. Stir well and chill at least 2 hours."\n"
 2. Fill each tall glass with 1/2 lemonade and 1/2 iced tea, add lemon slices and ice. Garnish with mint leaves."\n"','lemonade_iced_tea_cocktail');
-INSERT INTO `tbl_recipes` VALUES (29,'Drinks','Coconut Lemonade','10','4','Take lemonade to the tropics with a touch of coconut syrup and fresh berries. It''s a refreshing summer drink for outdoor parties.
+INSERT INTO "recipes" VALUES(29,'Drinks','Coconut Lemonade','10','4','Take lemonade to the tropics with a touch of coconut syrup and fresh berries. It''s a refreshing summer drink for outdoor parties.
 ','3 cups water"\n"
 2/3 cup lemon juice"\n"
 1/2 cup sugar"\n"
@@ -513,7 +494,7 @@ INSERT INTO `tbl_recipes` VALUES (29,'Drinks','Coconut Lemonade','10','4','Take 
 1 small fresh carambola (star fruit), thinly sliced crosswise"\n"
 Ice cubes (optional)"\n"','1. In a large bowl combine water, lemon juice, sugar, and coconut syrup. Stir until sugar is well dissolved. Cover and chill for 4 to 24 hours. "\n"
 2. To serve, transfer lemon mixture to a serving bowl or pitcher. Add blueberries, raspberries, and carambola. If desired, serve over ice cubes. Makes 4 (8-ounce) servings."\n"','coconut_lemonade');
-INSERT INTO `tbl_recipes` VALUES (30,'Drinks','Watermelon Lemonade','30','8','Serve this bright red summer drink with fruity ice cubes. As the cubes melt, the fresh fruit garnish remains.','5 large lemons"\n"
+INSERT INTO "recipes" VALUES(30,'Drinks','Watermelon Lemonade','30','8','Serve this bright red summer drink with fruity ice cubes. As the cubes melt, the fresh fruit garnish remains.','5 large lemons"\n"
 3 cups water"\n"
 1 cup sugar"\n"
 8 cups seeded and cubed watermelon (about 5 pounds with rind)"\n"
@@ -527,6 +508,3 @@ Kiwi Cubes:"\n"
 1. Peel 4 kiwifruit and cut into 8 pieces each. Fill compartments of 2 ice-cube trays with cut fruit. Add cold water; freeze until firm."\n""\n"
 Watermelon Cubes:"\n"
 1. Cut 1-inch cubes from watermelon flesh. Place cubes in a single layer in a 15x10x1-inch baking pan. Freeze 1 to 2 hours or until firm. If storing longer than 4 hours, transfer to a plastic freezer bag or container; freeze until served."\n"','watermelon_lemonade');
-CREATE TABLE android_metadata (locale TEXT);
-INSERT INTO `android_metadata` VALUES ('en_US');
-COMMIT;
