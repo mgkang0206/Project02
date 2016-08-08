@@ -4,9 +4,14 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +22,7 @@ public class RecipeSQliteHelper extends SQLiteOpenHelper {
   private static final int DATABASE_VERSION = 7;
   public static final String DATABASE_NAME = "RECIPE_DB";
   public static final String RECIPE_TABLE_NAME = "tbl_recipes";
-
+  private final Context myContext;
   public static final String COL_ID = "recipe_id";
   public static final String COL_RECIPE_NAME = "recipe_name";
   public static final String COL_CATEGORY = "category";
@@ -27,7 +32,7 @@ public class RecipeSQliteHelper extends SQLiteOpenHelper {
   public static final String COL_INGREDIENTS = "ingredients";
   public static final String COL_STEPS = "steps";
   public static final String COL_IMAGE = "image";
-
+  private static String DB_PATH = "/data/data/com.example.mgkan.project2/databases/";
   private static RecipeSQliteHelper DB;
 
   public static final String[] RECIPE_COLUMNS = {COL_ID,COL_RECIPE_NAME,COL_CATEGORY,COL_COOK_TIME,COL_SERVINGS,COL_SUMMARY,COL_INGREDIENTS,COL_STEPS,COL_IMAGE};
@@ -45,8 +50,57 @@ public class RecipeSQliteHelper extends SQLiteOpenHelper {
       COL_STEPS + " TEXT, " +
       COL_IMAGE + " TEXT )";
 
+  private boolean checkDataBase(){
+
+    SQLiteDatabase checkDB = null;
+
+    try{
+      String myPath = DB_PATH + DATABASE_NAME;
+      checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+
+    }catch(SQLiteException e){
+
+      //database does't exist yet.
+
+    }
+
+    if(checkDB != null){
+
+      checkDB.close();
+
+    }
+
+    return checkDB != null ? true : false;
+  }
+
+  private void copyDataBase() throws IOException {
+
+    //Open your local db as the input stream
+    InputStream myInput = myContext.getAssets().open(DATABASE_NAME);
+
+    // Path to the just created empty db
+    String outFileName = DB_PATH + DATABASE_NAME;
+
+    //Open the empty db as the output stream
+    OutputStream myOutput = new FileOutputStream(outFileName);
+
+    //transfer bytes from the inputfile to the outputfile
+    byte[] buffer = new byte[1024];
+    int length;
+    while ((length = myInput.read(buffer))>0){
+      myOutput.write(buffer, 0, length);
+    }
+
+    //Close the streams
+    myOutput.flush();
+    myOutput.close();
+    myInput.close();
+
+  }
+
   public RecipeSQliteHelper(Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    this.myContext=context;
   }
 
   public static RecipeSQliteHelper getInstance(Context context) {
